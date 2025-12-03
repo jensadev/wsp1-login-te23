@@ -3,9 +3,16 @@ import express from "express"
 const router = express.Router()
 
 router.get("/", (req, res) => {
-    res.render("index.njk",
-        { title: "Node js startrepo", message: "Använd det här repot som en grund för dina projekt." }
+    res.render("index.njk", { 
+            title: "Node js startrepo",
+            message: "Använd det här repot som en grund för dina projekt." }
     )
+})
+
+router.get("/login", (req, res) => {
+    res.render("login.njk", {
+        title: "Login"
+    })
 })
 
 router.get('/error', (req, res) => {
