@@ -15,6 +15,21 @@ router.get("/login", (req, res) => {
     })
 })
 
+router.post("/login", (req, res) => {
+    const username = req.body.username
+    const password = req.body.password
+    // tvätta bort dumheter
+    if (username === "admin" && password === "123") {
+        console.log("login true!")
+        req.session.login = "true"
+    } else {
+        console.log("fiiiil")
+    }
+
+
+    res.json({username, password, session: req.session.login})
+})
+
 router.get('/error', (req, res) => {
     throw new Error('Test error')
 })
